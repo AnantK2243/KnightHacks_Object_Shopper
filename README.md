@@ -3,7 +3,7 @@
 #### Start Here
 1. Create Virtual Environment
 
-    python -m gptBot-env
+    python -m venv gptBot-env
 
 2. Activate Virtual Environment
 
