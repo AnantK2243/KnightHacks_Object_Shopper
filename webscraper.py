@@ -62,5 +62,10 @@ def get_page_content(item):
     product_details.head(10)
     
     product_details.to_csv("Web-scraping.csv")
-    
-get_page_content("TV")
+
+def main():   
+    get_page_content("TV")
+
+if __name__ == "__main__":
+    main()
+
