@@ -1,9 +1,10 @@
-import gptRecommendation as gpt
+import GPTRecommendation as gpt
+import openai
+import json
 import cv2
 import cvlib as cv
 from cvlib.object_detection import draw_bbox
-from gtts import gTTS
-from playsound import playsound
+
 
 video = cv2.VideoCapture(0)
 labels = []
@@ -23,7 +24,8 @@ while True:
 
 def main():
     for i in labels:
-        print(gpt.get_Recommendation(i))
+        if(i != "person"):
+            print(gpt.get_Recommendation(i))
 
 if __name__ == "__main__":
     main()
