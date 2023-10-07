@@ -1,8 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-
-# Step 2. Getting the content of the top n pages
 
 def get_page_content(item):
     titles = []
@@ -57,11 +54,12 @@ def get_page_content(item):
             if(c!=10):
                 starRating.append(j)
                 c+=1
-    
-    product_details=pd.DataFrame({'Name': titles, 'Price': price, 'Rating': starRating})
-    product_details.head(10)
-    
-    product_details.to_csv("Web-scraping.csv")
+    returnFile = [3][10]
+    returnFile[0] = titles
+    returnFile[1] = price
+    returnFile[2] = starRating
+
+    return returnFile
 
 def main():   
     get_page_content("TV")
