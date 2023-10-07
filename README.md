@@ -1,7 +1,7 @@
 # KnightHacks_Object_Shopper
 
 #### Start Here
-1. Create Virtual Environement
+1. Create Virtual Environment
 
     python -m gptBot-env
 
