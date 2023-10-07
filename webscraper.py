@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # Step 2. Getting the content of the top n pages
 
@@ -20,6 +21,8 @@ def get_page_content(item):
     
     soup = BeautifulSoup(resp.text,'html.parser')
 
+    c = 0
+    
     try:
         tempTitles = soup.find_all("span",{"class":"a-size-medium a-color-base a-text-normal"})
     except:
@@ -27,7 +30,10 @@ def get_page_content(item):
 
     for i in tempTitles:
         for j in i:
-            titles.append(j)
+            if(c!=10):
+                titles.append(j)
+                c+=1
+    c = 0
 
     try:
         tempPrice = soup.find_all("span",{"class":"a-offscreen"})
@@ -36,7 +42,10 @@ def get_page_content(item):
 
     for i in tempPrice:
         for j in i:
-            price.append(j)
+            if(c!=10):
+                price.append(j)
+                c+=1
+    c = 0
     
     try:
         tempRating = soup.find_all("span",{"class":"a-icon-alt"})
@@ -45,8 +54,13 @@ def get_page_content(item):
 
     for i in tempRating:
         for j in i:
-            starRating.append(j)
-
-    print(starRating)
-
+            if(c!=10):
+                starRating.append(j)
+                c+=1
+    
+    product_details=pd.DataFrame({'Name': titles, 'Price': price, 'Rating': starRating})
+    product_details.head(10)
+    
+    product_details.to_csv("Web-scraping.csv")
+    
 get_page_content("TV")
