@@ -1,1 +1,1 @@
-import pandas as oa
+import openai as oa
