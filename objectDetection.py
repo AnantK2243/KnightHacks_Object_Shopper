@@ -2,6 +2,7 @@ import GPTRecommendation as gpt
 import cv2
 import cvlib as cv
 from cvlib.object_detection import draw_bbox
+import time
 
 video = cv2.VideoCapture(0)
 labels = []
@@ -21,8 +22,10 @@ while True:
 
 def main():
     for i in labels:
+        print(i)
         if(i != "person"):
             print(gpt.get_Recommendation(i))
+            time.sleep(3)
 
 if __name__ == "__main__":
     main()
