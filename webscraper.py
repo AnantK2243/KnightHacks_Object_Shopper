@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 # Step 2. Getting the content of the top n pages
 
 def get_page_content(item):
-    l = []
-    o = []
+    titles = []
+    price = []
+    starRating = []
 
     targetURL = 'https://www.amazon.com/s?k=' + item
     
@@ -20,11 +21,14 @@ def get_page_content(item):
     soup = BeautifulSoup(resp.text,'html.parser')
 
     try:
-        o.append(soup.find_all("span",{"class":"a-size-medium a-color-base a-text-normal"}))
-        #o.append(soup.find_all("span",{"class":"a-price"}).find("span").text)
+        tempTitles = soup.find_all("span",{"class":"a-size-medium a-color-base a-text-normal"})
     except:
-        o.append(None)
+        tempTitles = (None)
 
-    print(o)
+    for i in tempTitles:
+        for j in i:
+            titles.append(j)
 
-item = get_page_content("TV")
+    print(titles)
+
+get_page_content("TV")
