@@ -12,11 +12,11 @@ openai.api_key = api_key
 
 # Get recommendation form ChatGPT 3.5
 def get_Recommendation(prompt):
-    prompt = "Give me a shopping recommendation that pairs well with a " + prompt
+    prompt1 = "Give me a shopping recommendation that pairs well with a " + prompt
     response = openai.Completion.create(
         engine="text-davinci-002", 
-        prompt=prompt,
-        max_tokens=10,
+        prompt=prompt1,
+        max_tokens=300,
         n=3,
         stop=None,
     )
