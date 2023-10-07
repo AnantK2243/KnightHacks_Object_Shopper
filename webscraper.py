@@ -29,6 +29,24 @@ def get_page_content(item):
         for j in i:
             titles.append(j)
 
-    print(titles)
+    try:
+        tempPrice = soup.find_all("span",{"class":"a-offscreen"})
+    except:
+        tempPrice = (None)
+
+    for i in tempPrice:
+        for j in i:
+            price.append(j)
+    
+    try:
+        tempRating = soup.find_all("span",{"class":"a-icon-alt"})
+    except:
+        tempRating = (None)
+
+    for i in tempRating:
+        for j in i:
+            starRating.append(j)
+
+    print(starRating)
 
 get_page_content("TV")
