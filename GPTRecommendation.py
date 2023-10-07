@@ -11,10 +11,11 @@ api_key = config_data.get("api_key")
 openai.api_key = api_key
 
 # Get recommendation form ChatGPT 3.5
-def get_Reccomendation(prompt):
+def get_Recommendation(prompt):
+    prompt = "Give me a shopping recommendation that pairs well with a " + prompt
     response = openai.Completion.create(
         engine="text-davinci-002", 
-        prompt= ("Give me a similar item like " + prompt),
+        prompt=prompt,
         max_tokens=10,
         n=3,
         stop=None,
