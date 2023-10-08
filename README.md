@@ -7,7 +7,7 @@
 
 2. Activate Virtual Environment
 
-    gptBot-env\Script\activate
+    gptBot-env\Scripts\activate
 
 3. Install Necessary Libraries
 
