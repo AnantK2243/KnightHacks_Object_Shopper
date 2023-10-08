@@ -19,9 +19,8 @@ def get_page_content(item):
     soup = BeautifulSoup(resp.text,'html.parser')
 
     c = 0
-    
     try:
-        tempTitles = soup.find_all("span",{"class":"a-size-medium a-color-base a-text-normal"})
+        tempTitles = soup.find_all("span",{"class":"a-size-base-plus a-color-base a-text-normal"})
     except:
         tempTitles = (None)
 
@@ -54,10 +53,11 @@ def get_page_content(item):
             if(c!=10):
                 starRating.append(j)
                 c+=1
-    returnFile = [3][10]
-    returnFile[0] = titles
-    returnFile[1] = price
-    returnFile[2] = starRating
+
+    returnFile = []
+    returnFile.append(titles)
+    returnFile.append(price)
+    returnFile.append(starRating)
 
     return returnFile
 
